@@ -42,7 +42,7 @@ const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
 
       p.pm-content,
       article.pm-content {
-        color: #4b4f56;
+        color: #757b8a;
         text-align: center;
         font-size: 14px;
         line-height: 1.5;
@@ -64,7 +64,7 @@ const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
   <main>
     <section class="container">
       <h1 class="title">
-        {PmLocale[locale].title[EPmLevel.EMERGENCY]}
+        {PmLocale[locale].title[frontmatter.level]}
       </h1>
 
       <p class="message">
