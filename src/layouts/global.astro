@@ -1,0 +1,48 @@
+---
+import "normalize.css";
+import "../styles/common.css";
+---
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark light" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- your content is injected here -->
+    <slot />
+
+    <script>
+      if (window.location.pathname.includes("/korea")) {
+        document.documentElement.lang = "ko";
+      } else {
+        document.documentElement.lang = "en";
+      }
+    </script>
+  </body>
+</html>

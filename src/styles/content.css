@@ -1,0 +1,78 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  h1.title {
+    color: #17191c;
+
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  p.message {
+    color: #757b8a;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    h1.title {
+      color: #e2e4e9;
+    }
+
+    p.message {
+      color: #9196a1;
+    }
+  }
+}
+
+.btn-area {
+  display: flex;
+  justify-content: center;
+  gap: 0 10px;
+
+  a,
+  button {
+    display: block;
+    height: 44px;
+    padding: 0 20px;
+    background-color: transparent;
+
+    border: 1px solid #d5d7dc;
+    border-radius: 10px;
+    color: #17191c;
+    text-decoration: none;
+
+    font-size: 14px;
+    line-height: 42px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  a {
+    background-color: #e2e4e9;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a,
+    button {
+      border-color: #464a53;
+      color: #e2e4e9;
+    }
+
+    a {
+      background-color: #3b3d45;
+    }
+  }
+}

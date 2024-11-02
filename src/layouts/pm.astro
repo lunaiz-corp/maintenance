@@ -1,0 +1,100 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import GlobalLayout from "./global.astro";
+
+import PmLocale from "../locales/layouts/pm.json";
+
+import "../styles/content.css";
+
+enum EPmLevel {
+  PLANNED = "planned",
+  EMERGENCY = "emergency",
+}
+
+type Props = MarkdownLayoutProps<{
+  level: EPmLevel;
+  pmTime: string;
+}>;
+
+const { frontmatter } = Astro.props;
+
+// Check current locale by parsing the URL
+const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
+---
+
+<GlobalLayout>
+  <style lang="scss">
+    .container {
+      .message {
+        white-space: pre-wrap;
+      }
+    }
+
+    .detail {
+      h2.pm-title {
+        color: #17191c;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+
+        margin-top: 24px;
+      }
+
+      p.pm-content,
+      article.pm-content {
+        color: #4b4f56;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        h2.pm-title {
+          color: #e2e4e9;
+        }
+
+        p.pm-content,
+        article.pm-content {
+          color: #9196a1;
+        }
+      }
+    }
+  </style>
+
+  <main>
+    <section class="container">
+      <h1 class="title">
+        {PmLocale[locale].title[EPmLevel.EMERGENCY]}
+      </h1>
+
+      <p class="message">
+        {PmLocale[locale].message}
+      </p>
+
+      <div class="detail">
+        <h2 class="pm-title">{PmLocale[locale].detail.time}</h2>
+        <p class="pm-content">{frontmatter.pmTime}</p>
+
+        <h2 class="pm-title">{PmLocale[locale].detail.content}</h2>
+        <article class="pm-content">
+          <slot />
+        </article>
+
+        <p class="pm-content" style="margin-top: 38px; font-size: 12px;">
+          {
+            PmLocale[locale].detail.notice.map((notice) => (
+              <>
+                · {notice.replaceAll("{EMAIL}", "official@lunaiz.com")}
+                <br />
+              </>
+            ))
+          }
+        </p>
+      </div>
+    </section>
+
+    <section class="btn-area">
+      <button class="back-btn">{PmLocale[locale].buttons.back}</button>
+    </section>
+  </main>
+</GlobalLayout>

@@ -1,0 +1,29 @@
+:root {
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #0c0d0e;
+  }
+}
+
+html[lang="en"] {
+  font-family: "Product Sans", sans-serif;
+}
+
+html[lang="ko"] {
+  font-family: "Wanted Sans Variable", "Wanted Sans", "Product Sans", sans-serif;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button,
+a {
+  cursor: pointer;
+}
