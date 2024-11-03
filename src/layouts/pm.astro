@@ -2,7 +2,7 @@
 import type { MarkdownLayoutProps } from "astro";
 import GlobalLayout from "./global.astro";
 
-import PmLocale from "../locales/layouts/pm.json";
+import $t from "../locales/layouts/pm.json";
 
 import "../styles/content.css";
 
@@ -13,7 +13,8 @@ enum EPmLevel {
 
 type Props = MarkdownLayoutProps<{
   level: EPmLevel;
-  pmTime: string;
+  pm_time: string;
+  uptime_id: number;
 }>;
 
 const { frontmatter } = Astro.props;
@@ -64,25 +65,25 @@ const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
   <main>
     <section class="container">
       <h1 class="title">
-        {PmLocale[locale].title[frontmatter.level]}
+        {$t[locale].title[frontmatter.level]}
       </h1>
 
       <p class="message">
-        {PmLocale[locale].message}
+        {$t[locale].message}
       </p>
 
       <div class="detail">
-        <h2 class="pm-title">{PmLocale[locale].detail.time}</h2>
-        <p class="pm-content">{frontmatter.pmTime}</p>
+        <h2 class="pm-title">{$t[locale].detail.time}</h2>
+        <p class="pm-content">{frontmatter.pm_time}</p>
 
-        <h2 class="pm-title">{PmLocale[locale].detail.content}</h2>
+        <h2 class="pm-title">{$t[locale].detail.content}</h2>
         <article class="pm-content">
           <slot />
         </article>
 
         <p class="pm-content" style="margin-top: 38px; font-size: 12px;">
           {
-            PmLocale[locale].detail.notice.map((notice) => (
+            $t[locale].detail.notice.map((notice) => (
               <>
                 · {notice.replaceAll("{EMAIL}", "official@lunaiz.com")}
                 <br />
@@ -94,7 +95,21 @@ const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
     </section>
 
     <section class="btn-area">
-      <button class="back-btn">{PmLocale[locale].buttons.back}</button>
+      <button class="back-btn">{$t[locale].buttons.back}</button>
+      <a
+        href={`https://status.lunaiz.com/${locale === "ko" ? "ko/" : ""}incident/${frontmatter.uptime_id}`}
+        role="button"
+        target="_blank"
+        rel="norefferer"
+      >
+        {$t[locale].buttons.notice}
+      </a>
     </section>
   </main>
+
+  <script>
+    document.querySelector(".back-btn")!.addEventListener("click", () => {
+      window.history.go(-1);
+    });
+  </script>
 </GlobalLayout>
