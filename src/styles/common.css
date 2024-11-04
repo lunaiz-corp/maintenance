@@ -1,3 +1,18 @@
+/* Fonts */
+html[lang="en"] {
+  font-family: "Product Sans", sans-serif;
+}
+
+html[lang="ko"] {
+  font-family: "Wanted Sans Variable", "Wanted Sans", "Product Sans", sans-serif;
+}
+
+emoji {
+  font-family: "Tossface", "Apple Color Emoji", "Segoe UI Emoji",
+    "Noto Color Emoji", emoji;
+}
+
+/* Common */
 :root {
   background-color: #fff;
 }
@@ -6,14 +21,6 @@
   :root {
     background-color: #0c0d0e;
   }
-}
-
-html[lang="en"] {
-  font-family: "Product Sans", sans-serif;
-}
-
-html[lang="ko"] {
-  font-family: "Wanted Sans Variable", "Wanted Sans", "Product Sans", sans-serif;
 }
 
 main {

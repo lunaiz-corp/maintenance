@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
 const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
 ---
 
-<GlobalLayout>
+<GlobalLayout title={$t[locale].title[frontmatter.level]}>
   <main>
     <section class={contentStyles.container}>
       <h1 class={contentStyles.title}>

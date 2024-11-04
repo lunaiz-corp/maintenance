@@ -1,0 +1,51 @@
+---
+import lunaizLogo from "../assets/lunaiz-logo.svg?raw";
+
+function addAttributesToInnerHTMLString(
+  innerHTML: string,
+  attributes: Record<string, number | string>
+) {
+  const attributesString = Object.entries(attributes)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(" ");
+
+  return innerHTML.replace(/^<svg/, `<svg ${attributesString}`);
+}
+---
+
+<div class="container">
+  <span class="slogun"> our light illuminates your night. </span>
+
+  <Fragment
+    set:html={addAttributesToInnerHTMLString(lunaizLogo, {
+      "aria-label": "lunaiz",
+      style: "height: 22px; width: auto;",
+    })}
+  />
+</div>
+
+<style lang="scss">
+  div.container {
+    display: flex;
+    gap: 18px;
+
+    fill: black;
+
+    span.slogun {
+      color: #757b8a;
+
+      font-size: 16px;
+      font-family: "Product Sans", sans-serif;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    div.container {
+      fill: white;
+
+      span.slogun {
+        color: #9196a1;
+      }
+    }
+  }
+</style>

@@ -2,15 +2,26 @@
 import ResetCSS from "@appzic/astro-reset-css";
 
 import "../styles/common.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+
+// Check current locale by parsing the URL
+const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
 ---
 
-<html lang="ko">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="dark light" />
+
+    <title>{title}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -27,26 +38,21 @@ import "../styles/common.css";
 
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
+      href="https://cdn.jsdelivr.net/gh/toss/tossface@v1.6.1/dist/tossface.css"
     />
 
     <ResetCSS />
   </head>
 
   <body>
-    <!-- your content is injected here -->
     <slot />
-
-    <script>
-      if (window.location.pathname.includes("/korea")) {
-        document.documentElement.lang = "ko";
-      } else {
-        document.documentElement.lang = "en";
-      }
-    </script>
   </body>
 </html>

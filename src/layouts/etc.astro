@@ -1,0 +1,34 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import GlobalLayout from "./global.astro";
+
+import contentStyles from "../styles/content.module.scss";
+
+import LunaizLogo from "../components/LunaizLogo.astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  meta_title: string;
+}>;
+
+const { frontmatter } = Astro.props;
+---
+
+<GlobalLayout title={frontmatter.meta_title}>
+  <main>
+    <section class={contentStyles.container}>
+      <h1 class={contentStyles.title} set:html={frontmatter.title} />
+
+      <article
+        class={contentStyles.message}
+        style={{ whiteSpace: "pre-wrap", marginBlockEnd: "1em" }}
+      >
+        <slot />
+      </article>
+    </section>
+
+    <section class={contentStyles.btns}>
+      <LunaizLogo />
+    </section>
+  </main>
+</GlobalLayout>
