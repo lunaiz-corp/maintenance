@@ -1,5 +1,6 @@
 ---
-import "normalize.css";
+import ResetCSS from "@appzic/astro-reset-css";
+
 import "../styles/common.css";
 ---
 
@@ -23,6 +24,7 @@ import "../styles/common.css";
       href="https://fonts.gstatic.com"
       crossorigin="anonymous"
     />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
@@ -31,6 +33,8 @@ import "../styles/common.css";
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
     />
+
+    <ResetCSS />
   </head>
 
   <body>

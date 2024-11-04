@@ -1,0 +1,29 @@
+h2.title {
+  color: #17191c;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+
+  margin-top: 1.5em;
+}
+
+p.content,
+article.content {
+  color: #757b8a;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+
+  margin-block-start: .8em;
+}
+
+@media (prefers-color-scheme: dark) {
+  h2.title {
+    color: #e2e4e9;
+  }
+
+  p.content,
+  article.content {
+    color: #9196a1;
+  }
+}

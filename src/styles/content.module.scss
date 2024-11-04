@@ -23,7 +23,9 @@ main {
     color: #757b8a;
     text-align: center;
     font-size: 15px;
-    line-height: 1.6;
+
+    line-height: 1.58;
+    margin-block-start: 1.58em;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -37,10 +39,12 @@ main {
   }
 }
 
-.btn-area {
+.btns {
   display: flex;
   justify-content: center;
   gap: 0 10px;
+
+  margin-top: .8em;
 
   a,
   button {
