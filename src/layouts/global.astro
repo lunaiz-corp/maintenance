@@ -10,7 +10,7 @@ interface Props {
 const { title } = Astro.props;
 
 // Check current locale by parsing the URL
-const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
+const locale = Astro.url.pathname.includes("/global") ? "en" : "ko";
 ---
 
 <html lang={locale}>
@@ -40,10 +40,14 @@ const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
-    />
+    {
+      locale === "ko" && (
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
+        />
+      )
+    }
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/toss/tossface@v1.6.1/dist/tossface.css"

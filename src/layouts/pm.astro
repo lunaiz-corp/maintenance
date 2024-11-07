@@ -21,7 +21,7 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter } = Astro.props;
 
 // Check current locale by parsing the URL
-const locale = Astro.url.pathname.includes("/korea") ? "ko" : "en";
+const locale = Astro.url.pathname.includes("/global") ? "en" : "ko";
 ---
 
 <GlobalLayout title={$t[locale].title[frontmatter.level]}>
