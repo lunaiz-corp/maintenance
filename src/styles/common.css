@@ -1,10 +1,11 @@
 /* Fonts */
 html[lang="en"] {
-  font-family: "Product Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 html[lang="ko"] {
-  font-family: "Wanted Sans Variable", "Wanted Sans", "Product Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", "Wanted Sans Variable", "Wanted Sans",
+    sans-serif;
 }
 
 emoji {

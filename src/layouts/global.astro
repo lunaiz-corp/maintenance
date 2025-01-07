@@ -25,33 +25,18 @@ const locale = Astro.url.pathname.includes("/global") ? "en" : "ko";
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <link
-      rel="preconnect"
-      href="https://cdn.jsdelivr.net"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin="anonymous"
-    />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css"
-    />
-    {
-      locale === "ko" && (
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css"
-        />
-      )
-    }
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/toss/tossface@v1.6.1/dist/tossface.css"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ayaan-fonts/product-sans@main/fonts/webfonts/Product-Sans.min.css" />
+
+    {locale === "ko" && (
+      <link rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
+    )}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/toss/tossface@v1.6.1/dist/tossface.css" />
 
     <ResetCSS />
   </head>
