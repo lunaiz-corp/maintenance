@@ -1,6 +1,8 @@
 ---
 import contentStyles from "../styles/content.module.scss";
 import GlobalLayout from "../layouts/global.astro";
+
+import ButtonGroup from "../components/ButtonGroup.astro";
 ---
 
 <GlobalLayout>
@@ -14,11 +16,10 @@ import GlobalLayout from "../layouts/global.astro";
       </p>
     </section>
 
-    <section class={contentStyles.btns}>
+    <ButtonGroup>
       <button id="back-btn">이전 페이지</button>
-
       <a href="/" role="button">메인으로</a>
-    </section>
+    </ButtonGroup>
   </main>
 
   <script>

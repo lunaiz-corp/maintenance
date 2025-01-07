@@ -48,14 +48,14 @@ main {
   justify-content: center;
   gap: 0 10px;
 
-  margin-top: .8em;
+  margin-top: 0.8em;
 
   a,
   button {
     display: block;
     height: 44px;
     padding: 0 20px;
-    background-color: transparent;
+    background-color: #fff;
 
     border: 1px solid #d5d7dc;
     border-radius: 10px;
@@ -68,7 +68,8 @@ main {
     box-sizing: border-box;
   }
 
-  a {
+  a:nth-child(even),
+  button:nth-child(even) {
     background-color: #e2e4e9;
   }
 
@@ -79,7 +80,13 @@ main {
       color: #e2e4e9;
     }
 
-    a {
+    a:nth-child(odd),
+    button:nth-child(odd) {
+      background-color: #0c0d0e;
+    }
+
+    a:nth-child(even),
+    button:nth-child(even) {
       background-color: #3b3d45;
     }
   }

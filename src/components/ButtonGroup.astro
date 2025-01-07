@@ -1,0 +1,9 @@
+---
+import contentStyles from "../styles/content.module.scss";
+
+const { rest } = Astro.props;
+---
+
+<section class={contentStyles.btns} {...rest}>
+    <slot />
+</section>

@@ -5,13 +5,16 @@ import GlobalLayout from "./global.astro";
 import contentStyles from "../styles/content.module.scss";
 
 import LunaizLogo from "../components/LunaizLogo.astro";
+import ButtonGroup from "../components/ButtonGroup.astro";
 
 type Props = MarkdownLayoutProps<{
   title: string;
   meta_title: string;
+  show_footer: boolean;
 }>;
 
 const { frontmatter } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <GlobalLayout title={frontmatter.meta_title}>
@@ -27,8 +30,60 @@ const { frontmatter } = Astro.props;
       </article>
     </section>
 
-    <section class={contentStyles.btns}>
-      <LunaizLogo />
-    </section>
+    {frontmatter.show_footer != false && (
+      <ButtonGroup>
+        <LunaizLogo />
+      </ButtonGroup>
+    )}
+
+    {/* 페이지 별 커스텀 style */}
+    {pathname.split("/")[3] === "thankyou-kanna" && (
+      <video src="https://allpgs.github.io/kanna-the-finale-files/videos/background.mp4" muted loop playsinline autoplay></video>
+
+      <style>
+        :root {
+          background: #0c0d0e;
+        }
+
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          opacity: 0.2;
+          filter: brightness(120%) contrast(120%);
+        }
+
+        section {
+          z-index: 1;
+        }
+
+        h1,
+        article a {
+          color: #e2e4e9 !important;
+        }
+
+        article {
+          color: #9196a1 !important;
+        }
+
+        div a {
+          border-color: #464a53 !important;
+          color: #e2e4e9 !important;
+        }
+
+        div a:nth-child(odd) {
+          background-color: #0c0d0e;
+        }
+
+        div a:nth-child(even) {
+          background-color: #3b3d45 !important;
+        }
+      </style>
+    )}
   </main>
 </GlobalLayout>
