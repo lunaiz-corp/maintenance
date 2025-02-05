@@ -26,6 +26,11 @@ main {
 
     line-height: 1.58;
     margin-block-start: 1.58em;
+
+    a {
+      color: black;
+      text-decoration: underline;
+    }
   }
 
   .message:has(span) {
@@ -74,6 +79,7 @@ main {
   }
 
   @media (prefers-color-scheme: dark) {
+
     a,
     button {
       border-color: #464a53;
